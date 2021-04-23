@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import styles from './TarjetaFruta.module.css';
 
 class TarjetaFruta extends React.Component{
     
@@ -12,20 +13,12 @@ class TarjetaFruta extends React.Component{
     
     render(){
 
-        const hasItems = this.state.cantidad > 0
-
-        const styles = {
-            border: '2px solid black',
-            marginBottom: '1em',
-            borderRadius: '0.5em',
-            padding: '1em',
-            background: hasItems ? 'linear-gradient(45deg, black, #4a02f7)' : '#FFF',
-            color: hasItems ? '#FFF' : '#000',
-            transition: 'all 400ms ease-out'
-        }
+        const hasItems = this.state.cantidad > 0;
+        const activeClass = hasItems ? styles['card-active'] : '';
+        const cssClass = `${styles.card} ${activeClass}`;
 
         return (
-            <div style={styles}>
+            <div className={cssClass}>
                 <h3>{ this.props.name }</h3>
                 <hr></hr>
                 <div>Cantidad: { this.state.cantidad }</div>
